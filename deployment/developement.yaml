@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json
+
+# just a name for the project
+name: kodeloftet-distributed-system
+
+## Contains a description of all of the applications/services our system consists of
+services:
+  ### The web client
+  client:
+    build:
+      context: ../applications/client-static
+      dockerfile: Dockerfile
+    ports:
+      - 8080:80
+
+## Networks allow us to define which components can communicate
+networks:
+  backend:
+
+## Volumes are for persistent storage between container restarts
+volumes:
+  reports:
